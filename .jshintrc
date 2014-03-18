@@ -1,0 +1,16 @@
+{
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "eqnull": true,
+    "expr": true,
+    "latedef": "nofunc",
+    "noarg": true,
+    "node": true,
+    "browser": true,
+    "jquery": true,
+    "trailing": true,
+    "undef": true,
+    "unused": true,
+    "quotmark": "single"
+}

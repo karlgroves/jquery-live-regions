@@ -1,0 +1,29 @@
+{
+    "name": "jquery-live-regions",
+    "version": "0.0.1",
+    "title": "jQuery Live Regions",
+    "description": "jQuery script for managing live regions on a page",
+    "keywords": "Accessibility, WAI-ARIA, Live Regions, WCAG",
+    "author": {
+        "name": "Karl Groves",
+        "email": "karl@karlgroves.com",
+        "url": "http://www.karlgroves.com"
+    },
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.8.0",
+        "grunt-contrib-watch": "~0.5.3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:karlgroves/jquery-live-regions.git"
+    },
+    "bugs": {
+        "url": "https://github.com/karlgroves/jquery-live-regions/issues"
+    },
+    "licenses": [
+        {
+            "type": "MIT"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+node_modules
+.idea/*
+.idea/workspace.xml
+atlassian-ide-plugin.xml
+.DS_Store
+.settings
