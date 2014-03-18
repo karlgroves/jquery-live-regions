@@ -16,16 +16,19 @@ Live Regions allows the user of assistive technologies to be notified of content
 
 There are many types of changes that occur in the typical web-based applications and essentially any content that changes dynamically is a candidate for a live region.
 
-
 ### Super simple method
 
-```$('#foo').liveRegion();```
+```
+$('#foo').liveRegion();
+```
 
 The above method creates a live region with default values. Modifications to the item with an ID of "foo" will be announced by assistive technology.
 
 ### Give it a label
 
-```$('#foo').liveRegion({label: 'News Ticker'});```
+```
+$('#foo').liveRegion({label: 'News Ticker'});
+```
 
 This will create a live region with an ```aria-label``` of "New Ticker"
 
