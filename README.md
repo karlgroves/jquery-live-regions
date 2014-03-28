@@ -1,9 +1,9 @@
 # jQuery Live Regions
-This is a simple, easy to use plugin for managing live regions on a page.
+This is a simple, easy to use plugin for managing live regions on a page, including adding new content or swapping content in the live region
 
 ## Creating live region
 
-### Use Case
+### Primary Use Case
 
 Live Regions allows the user of assistive technologies to be notified of content changes that may occur automatically and may not be explicitly triggered by the user. The content change may exist separate to what object has focus, and so Live Regions facilitate these notifications. Possible examples include:
 
@@ -15,6 +15,9 @@ Live Regions allows the user of assistive technologies to be notified of content
 * Form validation messages
 
 There are many types of changes that occur in the typical web-based applications and essentially any content that changes dynamically is a candidate for a live region.
+
+### Secondary Use Case
+Some changes to content on a page should trigger notifications to the user of assistive technologies, but don't. This pluging can be used as a "notifier" of sorts, to add these relevant notifications.
 
 
 ### Super simple method
@@ -51,6 +54,9 @@ You are not required to provide any of these values. They will be set to sensibl
   * text
   * all
 * busy - is the live region busy or not. Valid values are 'true' and 'false'. As before, must be strings.
+* className - CSS class name to be added to the node
+* replace - boolean representing whether or not the current text is to be replaced or not. If false, the text (defined below) will be appended to the live region node. If true, all existing content is removed first.
+* text - string of text (or HTML) to be inserted into the live region. 
 
 ### Sample use with all available properties:
 
@@ -61,7 +67,10 @@ $('#foo').liveRegion({
     atomic: 'false',
     live: 'polite',
     relevant: 'additions text',
-    busy: 'false'
+    busy: 'false',
+    className: 'tblLiveCaption'
+    replace: true,
+    text: 'User List, assorted by last name descending'
 });
 
 ```

@@ -31,7 +31,10 @@
                 atomic,
                 live,
                 relevant,
-                busy;
+                busy,
+                className,
+                replace,
+                text;
 
             /**
              * function to determine whether something is blank or not
@@ -80,7 +83,8 @@
                 atomic: self.attr('aria-atomic') || undefined,
                 live: self.attr('aria-live') || undefined,
                 relevant: self.attr('aria-relevant') || undefined,
-                busy: self.attr('aria-busy') || undefined
+                busy: self.attr('aria-busy') || undefined,
+                className: self.attr('aria-busy') || undefined
             };
 
             //clean anything that is a blank string because although that's truthy, it is useless to us
@@ -101,6 +105,9 @@
             live = opts.live || current.live || 'polite';
             relevant = opts.relevant || current.relevant || 'additions';
             busy = opts.busy || current.busy || 'false';
+            className = opts.className || undefined,
+                replace = opts.replace || false,
+                text = opts.text || undefined;
 
             // actually set the values
             self.attr('role', role)
@@ -118,6 +125,21 @@
 
             if ((label !== undefined) && (label !== null)) {
                 self.attr('aria-label', label);
+            }
+
+            // add CSS class if needed
+            if (className !== undefined) {
+                self.addClass(className);
+            }
+
+            // add or replace text, if needed
+            if (text !== undefined) {
+                if (replace === false) {
+                    self.append(text);
+                }
+                else {
+                    self.empty().html(text);
+                }
             }
         }
     });
