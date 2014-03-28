@@ -23,7 +23,9 @@ Some changes to content on a page should trigger notifications to the user of as
 
 ### Super simple method
 
-```$('#foo').liveRegion();```
+``` 
+$('#foo').liveRegion();
+```
 
 The above method creates a live region with default values. Modifications to the item with an ID of "foo" will be announced by assistive technology.
 
@@ -61,7 +63,8 @@ You are not required to provide any of these values. They will be set to sensibl
 
 ### Sample use with all available properties:
 
-```$('#foo').liveRegion({
+```
+$('#foo').liveRegion({
     label: 'Chat Log',
     role: 'log',
     atomic: 'false',
@@ -71,13 +74,15 @@ You are not required to provide any of these values. They will be set to sensibl
     className: 'tblLiveCaption'
     replace: true,
     text: 'User List, assorted by last name descending'
-});```
+});
+```
 
 ## Overriding Values
 
 There may be times when you want to override one or more of the existing values.  For instance, in the case where you're waiting for new content to arrive from Ajax:
 
-```// the default set up
+```
+// the default set up
 $('#foo').liveRegion({
     label: 'Chat Log',
     role: 'log',
@@ -92,7 +97,8 @@ if(we-are-waiting-for-the-new-content){
 	$('#foo').liveRegion({ 
 	  busy: 'true'
 	});
-}```
+}
+```
 
 In the above scenario, the original settings are retained and only the `aria-busy` value is modified.
 
