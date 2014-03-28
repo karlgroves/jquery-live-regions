@@ -17,6 +17,7 @@ Live Regions allows the user of assistive technologies to be notified of content
 There are many types of changes that occur in the typical web-based applications and essentially any content that changes dynamically is a candidate for a live region.
 
 ### Secondary Use Case
+
 Some changes to content on a page should trigger notifications to the user of assistive technologies, but don't. This pluging can be used as a "notifier" of sorts, to add these relevant notifications.
 
 
