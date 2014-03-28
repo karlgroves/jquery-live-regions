@@ -104,9 +104,9 @@
             live = opts.live || current.live || 'polite';
             relevant = opts.relevant || current.relevant || 'additions';
             busy = opts.busy || current.busy || 'false';
-            className = opts.className || undefined,
-                replace = opts.replace || false,
-                text = opts.text || undefined;
+            className = opts.className || undefined;
+            replace = opts.replace || false;
+            text = opts.text || undefined;
 
             // actually set the values
             self.attr('role', role)
