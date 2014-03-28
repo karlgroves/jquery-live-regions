@@ -1,4 +1,5 @@
 # jQuery Live Regions
+
 This is a simple, easy to use plugin for managing live regions on a page, including adding new content or swapping content in the live region
 
 ## Creating live region
