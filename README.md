@@ -31,14 +31,14 @@ The above method creates a live region with default values. Modifications to the
 
 ```$('#foo').liveRegion({label: 'News Ticker'});```
 
-This will create a live region with an ```aria-label``` of "New Ticker"
+This will create a live region with an `aria-label` of "New Ticker"
 
 ## Full list of available properties
 
 You are not required to provide any of these values. They will be set to sensible defaults if they aren't supplied.
 
-* labelledby - Points to an ID of another element on screen to use as a label. Becomes ```aria-labelledby``` on the live region.
-* label - String of text provided to serve as a label. Becomes ```aria-label``` attribute on the live region.
+* labelledby - Points to an ID of another element on screen to use as a label. Becomes `aria-labelledby` on the live region.
+* label - String of text provided to serve as a label. Becomes `aria-label` attribute on the live region.
 * role - what type of live region is this? Options are:
   * log
   * status
@@ -48,8 +48,8 @@ You are not required to provide any of these values. They will be set to sensibl
   * progressbar
   * region
 * atomic - Valid values are 'true' and 'false'. NOTE: these must be strings, not booleans. Non-intuitive, I know.
-* live - Indicates how important the content is. Valid values are 'polite' and 'assertive'. It is best to use 'polite' unless this is an urgent notice of some kind. Becomes ```aria-live``` attribute on the live region
-* relevant - what are the relevant changes you want to announce? Becomes ```aria-relevant``` on the live region.
+* live - Indicates how important the content is. Valid values are 'polite' and 'assertive'. It is best to use 'polite' unless this is an urgent notice of some kind. Becomes `aria-live` attribute on the live region
+* relevant - what are the relevant changes you want to announce? Becomes `aria-relevant` on the live region.
   * additions
   * removals
   * text
@@ -61,8 +61,7 @@ You are not required to provide any of these values. They will be set to sensibl
 
 ### Sample use with all available properties:
 
-```
-$('#foo').liveRegion({
+```$('#foo').liveRegion({
     label: 'Chat Log',
     role: 'log',
     atomic: 'false',
@@ -72,16 +71,13 @@ $('#foo').liveRegion({
     className: 'tblLiveCaption'
     replace: true,
     text: 'User List, assorted by last name descending'
-});
-
-```
+});```
 
 ## Overriding Values
 
 There may be times when you want to override one or more of the existing values.  For instance, in the case where you're waiting for new content to arrive from Ajax:
 
-```
-// the default set up
+```// the default set up
 $('#foo').liveRegion({
     label: 'Chat Log',
     role: 'log',
@@ -96,11 +92,9 @@ if(we-are-waiting-for-the-new-content){
 	$('#foo').liveRegion({ 
 	  busy: 'true'
 	});
-}
+}```
 
-```
-
-In the above scenario, the original settings are retained and only the ```aria-busy``` value is modified.
+In the above scenario, the original settings are retained and only the `aria-busy` value is modified.
 
 
 ## More information:
