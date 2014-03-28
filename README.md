@@ -20,7 +20,6 @@ There are many types of changes that occur in the typical web-based applications
 
 Some changes to content on a page should trigger notifications to the user of assistive technologies, but don't. This pluging can be used as a "notifier" of sorts, to add these relevant notifications.
 
-
 ### Super simple method
 
 ```$('#foo').liveRegion();```
