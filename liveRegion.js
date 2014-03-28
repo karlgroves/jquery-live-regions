@@ -83,8 +83,7 @@
                 atomic: self.attr('aria-atomic') || undefined,
                 live: self.attr('aria-live') || undefined,
                 relevant: self.attr('aria-relevant') || undefined,
-                busy: self.attr('aria-busy') || undefined,
-                className: self.attr('aria-busy') || undefined
+                busy: self.attr('aria-busy') || undefined
             };
 
             //clean anything that is a blank string because although that's truthy, it is useless to us
