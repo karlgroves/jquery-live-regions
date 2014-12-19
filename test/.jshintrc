@@ -13,20 +13,15 @@
     "browser": true,
     "predef": [
         "jQuery",
-        "QUnit",
-        "module",
-        "test",
-        "asyncTest",
-        "expect",
-        "start",
-        "stop",
-        "ok",
-        "equal",
-        "notEqual",
-        "deepEqual",
-        "notDeepEqual",
-        "strictEqual",
-        "notStrictEqual",
-        "throws"
+        "chai",
+        "sinon",
+        "describe",
+        "it",
+        "before",
+        "beforeEach",
+        "after",
+        "afterEach",
+        "-should",
+        "expect"
     ]
 }

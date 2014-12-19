@@ -18,7 +18,7 @@ module.exports = function (grunt) {
         ' Licensed MIT */\n',
         // Task configuration.
         clean: {
-            files: ['dist']
+            files: ['dist', 'test-reports']
         },
         uglify: {
             options: {
@@ -27,13 +27,6 @@ module.exports = function (grunt) {
             dist: {
                 src: '<%= concat.dist.dest %>',
                 dest: 'dist/jquery.<%= pkg.name %>.min.js'
-            }
-        },
-        qunit: {
-            all: {
-                options: {
-                    urls: ['http://localhost:9000/test/<%= pkg.name %>.html']
-                }
             }
         },
         jshint: {
@@ -59,6 +52,18 @@ module.exports = function (grunt) {
                 src: ['test/**/*.js']
             }
         },
+        karma: {
+            dev: {
+                configFile: './karma.conf.js',
+                autoWatch: true,
+                singleRun: false,
+                background: false,
+                captureConsole: false
+            }
+            // continuous: {
+            //     configFile: './karma.conf-ci.js'
+            // }
+        },
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
@@ -66,11 +71,11 @@ module.exports = function (grunt) {
             },
             src: {
                 files: '<%= jshint.src.src %>',
-                tasks: ['jshint:src', 'qunit']
+                tasks: ['jshint:src', 'karma:dev:run']
             },
             test: {
                 files: '<%= jshint.test.src %>',
-                tasks: ['jshint:test', 'qunit']
+                tasks: ['jshint:test', 'karma:dev:run']
             }
         },
         connect: {
@@ -84,7 +89,7 @@ module.exports = function (grunt) {
     });
 
     // Default task.
-    grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'copy', 'uglify']);
+    grunt.registerTask('default', ['test', 'clean', 'copy', 'uglify']);
     grunt.registerTask('server', ['connect', 'watch']);
-    grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+    grunt.registerTask('test', ['jshint', 'karma:dev']);
 };
