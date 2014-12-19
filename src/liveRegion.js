@@ -148,6 +148,8 @@
                     self.empty().html(text);
                 }
             }
+            
+            return this;
         }
     });
 })(jQuery, window);
