@@ -2,6 +2,13 @@
 
 This is a simple, easy to use plugin for managing live regions on a page, including adding new content or swapping content in the live region
 
+## Getting Started
+
+Download the [production version][min] or the [development version][max].
+
+[min]: https://raw.github.com/karlgroves/jquery-live-regions/master/dist/liveRegion.min.js
+[max]: https://raw.github.com/karlgroves/jquery-live-regions/master/dist/liveRegion.js
+
 ## Creating live region
 
 ### Primary Use Case

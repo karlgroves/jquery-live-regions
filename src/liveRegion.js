@@ -75,6 +75,14 @@
                 return obj;
             }
 
+            /**
+             *
+             * @returns {*}
+             */
+            function clear() {
+                return self.html('');
+            }
+
             // get the values of any existing live-region related properties
             current = {
                 labelledby: self.attr('aria-labelledby') || undefined,
