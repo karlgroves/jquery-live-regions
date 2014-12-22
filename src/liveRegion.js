@@ -34,7 +34,12 @@
                 busy,
                 className,
                 replace,
-                text;
+                text,
+                wait;
+
+            if(typeof opts === 'undefined'){
+                opts = {};
+            }
 
             /**
              * function to determine whether something is blank or not
@@ -75,23 +80,15 @@
                 return obj;
             }
 
-            /**
-             *
-             * @returns {*}
-             */
-            function clear() {
-                return self.html('');
-            }
-
             // get the values of any existing live-region related properties
             current = {
                 labelledby: self.attr('aria-labelledby') || undefined,
                 label: self.attr('aria-label') || undefined,
-                role: self.attr('role') || undefined,
-                atomic: self.attr('aria-atomic') || undefined,
-                live: self.attr('aria-live') || undefined,
-                relevant: self.attr('aria-relevant') || undefined,
-                busy: self.attr('aria-busy') || undefined
+                role: self.attr('role').toLowerCase() || undefined,
+                atomic: self.attr('aria-atomic').toLowerCase() || undefined,
+                live: self.attr('aria-live').toLowerCase() || undefined,
+                relevant: self.attr('aria-relevant').toLowerCase() || undefined,
+                busy: self.attr('aria-busy').toLowerCase() || undefined
             };
 
             //clean anything that is a blank string because although that's truthy, it is useless to us
@@ -101,7 +98,7 @@
 
             // this section determines what the new values should be.
             // it does so by setting to:
-            // 1.  the defined opts value or,
+            // 1.  the defined opts value if they exist or,
             // 2.  the currently existing value or,
             // 3.  the default value
             // (in that order)
@@ -114,7 +111,15 @@
             busy = opts.busy || current.busy || 'false';
             className = opts.className || undefined;
             replace = opts.replace || false;
-            text = opts.text || undefined;
+            text = opts.text || undefined,
+            wait = opts.wait || 200;
+
+            /**
+             * Semi-kludgey: if the role is alert, override any 'live' property value to ensure it is assertive
+             */
+            if(role === 'alert'){
+                live = 'assertive';
+            }
 
             // actually set the values
             self.attr('role', role)
@@ -140,12 +145,15 @@
             }
 
             // add or replace text, if needed
+            // NOTE the use of setTimeout here to deal with some screen readers not
+            // announcing liveRegion content if the content is added at the same time
+            // as the other relevant live region attributes
             if (text !== undefined) {
                 if (replace === false) {
-                    self.append(text);
+                    setTimeout(self.append(text), wait);
                 }
                 else {
-                    self.empty().html(text);
+                    setTimeout(self.empty().html(text), wait);
                 }
             }
             

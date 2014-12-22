@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 8</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/liveRegion.js"></script>
+</head>
+<body>
+<!--//  Basic Live Region with external label   //-->
+
+<!--//  IT SHOULD HAVE
+
+
+//-->
+
+<h2 id="label">Label</h2>
+<div id="live-region"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion({
+            labelledby: 'label
+        });
+    });
+</script>
+</body>
+</html>

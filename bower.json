@@ -3,8 +3,6 @@
     "version": "0.0.1",
     "dependencies": {},
     "devDependencies": {
-        "jquery": "~2.1.2",
-        "jqueryui": "~1.11.2",
-        "qunit": "~1.16.0"
+        "jquery": "~2.1.2"
     }
 }

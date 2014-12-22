@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 4</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/liveRegion.js"></script>
+    <script src="quotes.js"></script>
+</head>
+<body>
+<!--//  Basic Live Region, no options - test auto updating text  //-->
+<div id="live-region"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion();
+
+        function randomQuote(quotes) {
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        setInterval($('#live-region').liveRegion({
+            replace: true,
+            text: randomQuote(quotes)
+        }), 1000);
+    });
+</script>
+</body>
+</html>

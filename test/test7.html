@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 1</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/liveRegion.js"></script>
+</head>
+<body>
+<!--deal with alert role-->
+
+<div id="live-region"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion({
+            role: 'alert'
+        });
+    });
+</script>
+</body>
+</html>

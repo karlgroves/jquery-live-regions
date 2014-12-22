@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 1</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/liveRegion.js"></script>
+</head>
+<body>
+<!--//  Basic Live Region with no options passed to it. This use case is for setting up a basic empty live region that you plan on adding to   //-->
+
+<!--//  IT SHOULD HAVE
+  role="region"
+  aria-atomic="false"
+  aria-live="polite"
+  aria-busy="false"
+  aria-relevant="additions"
+//-->
+
+
+<div id="live-region"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion();
+    });
+</script>
+</body>
+</html>
