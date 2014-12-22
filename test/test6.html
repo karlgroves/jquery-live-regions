@@ -14,10 +14,12 @@
       $(document).ready(function(){
           $('#live-region').liveRegion();
 
-          setTimeout($('#live-region').liveRegion({
-              replace: true,
-              text: 'Go to Heaven for the climate, Hell for the company.'
-          }), 10000);
+          setTimeout(function(){
+              $('#live-region').liveRegion({
+                  replace: true,
+                  text: 'Go to Heaven for the climate, Hell for the company.'
+              })
+          }, 10000);
       });
   </script>
   </body>
