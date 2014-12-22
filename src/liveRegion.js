@@ -84,11 +84,11 @@
             current = {
                 labelledby: self.attr('aria-labelledby') || undefined,
                 label: self.attr('aria-label') || undefined,
-                role: self.attr('role').toLowerCase() || undefined,
-                atomic: self.attr('aria-atomic').toLowerCase() || undefined,
-                live: self.attr('aria-live').toLowerCase() || undefined,
-                relevant: self.attr('aria-relevant').toLowerCase() || undefined,
-                busy: self.attr('aria-busy').toLowerCase() || undefined
+                role: self.attr('role') || undefined,
+                atomic: self.attr('aria-atomic') || undefined,
+                live: self.attr('aria-live') || undefined,
+                relevant: self.attr('aria-relevant') || undefined,
+                busy: self.attr('aria-busy') || undefined
             };
 
             //clean anything that is a blank string because although that's truthy, it is useless to us
