@@ -18,10 +18,12 @@
             return quotes[Math.floor(Math.random() * quotes.length)];
         }
 
-        setInterval($('#live-region').liveRegion({
-            replace: true,
-            text: randomQuote(quotes)
-        }), 1000);
+        setInterval(function(){
+            $('#live-region').liveRegion({
+                replace: true,
+                text: randomQuote(quotes)
+            })
+        }, 1000);
     });
 </script>
 </body>

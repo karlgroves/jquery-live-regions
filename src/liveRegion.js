@@ -151,12 +151,12 @@
             if (typeof text !== 'undefined') {
                 if (replace === false) {
                     setTimeout(function(){
-                        self.append(text)
+                        self.append(text);
                     }, wait);
                 }
                 else {
                     setTimeout(function(){
-                        self.empty().html(text)
+                        self.empty().html(text);
                     }, wait);
                 }
             }
