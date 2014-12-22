@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 5-a</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/liveRegion.js"></script>
+</head>
+<body>
+<!--//  Basic Live Region with pre-existing text. Test appending text //-->
+<div id="live-region">It is curious that physical courage should be so common in the world and moral courage so rare.
+</div>
+
+<button id="change">Change Text</button>
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion();
+
+
+        $('#change').click(function () {
+            $('#live-region').liveRegion({
+                replace: false,
+                text: 'The lack of money is the root of all evil.'
+            });
+        });
+    });
+</script>
+</body>
+</html>
