@@ -1,4 +1,4 @@
-(function ($, window, undefined) {
+;(function ($, window, undefined) {
     'use strict';
     $.fn.extend({
         /**
@@ -111,7 +111,7 @@
             busy = opts.busy || current.busy || 'false';
             className = opts.className || undefined;
             replace = opts.replace || false;
-            text = opts.text || undefined,
+            text = opts.text || undefined;
             wait = opts.wait || 200;
 
             /**
@@ -148,12 +148,16 @@
             // NOTE the use of setTimeout here to deal with some screen readers not
             // announcing liveRegion content if the content is added at the same time
             // as the other relevant live region attributes
-            if (text !== undefined) {
+            if (typeof text !== 'undefined') {
                 if (replace === false) {
-                    setTimeout(self.append(text), wait);
+                    setTimeout(function(){
+                        self.append(text)
+                    }, wait);
                 }
                 else {
-                    setTimeout(self.empty().html(text), wait);
+                    setTimeout(function(){
+                        self.empty().html(text)
+                    }, wait);
                 }
             }
             
