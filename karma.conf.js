@@ -20,7 +20,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
         {pattern: 'node_modules/js-fixtures/fixtures.js', watched: false, included: true, served: true},
-        {pattern: 'test/*.html', watched: true, included: false, served: true},
+        {pattern: 'test/fixtures/*.html', watched: true, included: false, served: true},
+        {pattern: 'bower_components/**', watched: false, included: false, served: true},
         {pattern: 'test/*.js', watched: true, included: true, served: true},
         {pattern: 'src/*.js', watched: true, included: false, served: true}
     ],

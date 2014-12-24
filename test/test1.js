@@ -23,21 +23,15 @@ var should = chai.should();
     'use strict';
 
 
-    var $$;
+    var $$,theRegion,role,atomic,live,busy,relevant,text;
 
-    describe('Test1 - default properties', function () {
+    describe.only('Test1 - default properties', function () {
 
         this.timeout(3000);
 
-        fixtures.path = 'base/fixtures';
+        fixtures.path = 'base/test/fixtures';
 
-        beforeEach(function (done) {
-            done();
-        });
-
-
-        it('should have a full set of default attributes', function (done) {
-
+        before(function(done){
             /**
              *  role="region"
              * aria-atomic="false"
@@ -46,26 +40,40 @@ var should = chai.should();
              * aria-relevant="additions"
              * text should be empty
              */
-
-
             fixtures.load('test1.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
-
-                var theRegion = $$('#live-region'),
-                    role = theRegion.attr('role'),
-                    atomic = theRegion.attr('aria-atomic'),
-                    live = theRegion.attr('aria-live'),
-                    busy = theRegion.attr('aria-busy'),
-                    relevant = theRegion.attr('aria-relevant'),
-                    text = theRegion.html();
-
+                theRegion = $$('#live-region');
+                atomic = theRegion.attr('aria-atomic');
+                live = theRegion.attr('aria-live');
+                busy = theRegion.attr('aria-busy');
+                relevant = theRegion.attr('aria-relevant');
+                text = theRegion.html();
                 done();
             });
         });
 
+        beforeEach(function (done) {
+            done();
+        });
 
         afterEach(function () {
             fixtures.cleanUp(); // cleans up the fixture for the next test
+        });
+
+        it('should have a role attribute set to \"region\"', function () {
+             theRegion.attr("role").should.equal("region");
+        });
+        it('should have a aria-atomic attribute set to \"false\"', function () {
+             theRegion.attr("aria-atomic").should.equal("false");
+        });
+        it('should have a aria-live attribute set to \"polite\"', function () {
+             theRegion.attr("aria-live").should.equal("polite");
+        });
+        it('should have a aria-busy attribute set to \"false\"', function () {
+             theRegion.attr("aria-busy").should.equal("false");
+        });
+        it('should have a aria-relevant attribute set to \"additions\"', function () {
+             theRegion.attr("aria-relevant").should.equal("additions");
         });
 
     });
