@@ -20,20 +20,20 @@ var should = chai.should();
 
 
 (function () {
-'use strict';
+    'use strict';
 
 
-    var $$, doit;
+    var $$;
 
-    describe('It should have a live region with a few non-default settings', function () {
+    describe('Test 2: a live region with a few non-default settings', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done){
+        beforeEach(function (done) {
 
             fixtures.path = 'base/test';
 
-            fixtures.load('test2.html', function(){
+            fixtures.load('test2.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
 
                 /**
@@ -47,22 +47,22 @@ var should = chai.should();
                  * text should be empty
                  */
 
+                var theRegion = $$('#live-region'),
+                    role = theRegion.attr('role'),
+                    atomic = theRegion.attr('aria-atomic'),
+                    live = theRegion.attr('aria-live'),
+                    busy = theRegion.attr('aria-busy'),
+                    relevant = theRegion.attr('aria-relevant'),
+                    text = theRegion.html();
 
-                doit = fixtures.window().doit;
                 done();
             });
         });
 
-        afterEach(function (done){
+        afterEach(function (done) {
             fixtures.cleanUp(); // cleans up the fixture for the next test
             done();
         });
-
-
-        it('doit should reutrn true when called', function(){
-          doit().should.equal(true);
-        });
-
 
     });
 

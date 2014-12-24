@@ -2,55 +2,7 @@
 
 module.exports = function(config) {
 
-
-  // Browsers to run on Sauce Labs
-  // var customLaunchers = {
-    // 'SL_Chrome': {
-    //   base: 'SauceLabs',
-    //   browserName: 'chrome'
-    // }
-    // 'SL_Firefox': {
-    //   base: 'SauceLabs',
-    //   browserName: 'firefox',
-    //   version: '26'
-    // },
-    // 'SL_Safari': {
-    //   base: 'SauceLabs',
-    //   browserName: 'safari',
-    //   platform: 'OS X 10.9',
-    //   version: '7'
-    // },
-
-    // DO NOT USE IE THERE IS A BUG WITH SINON
-    // see: https://github.com/cjohansen/Sinon.JS/issues/335
-    // 'SL_IE_8': {
-    //   base: 'SauceLabs',
-    //   browserName: 'internet explorer',
-    //   platform: 'Windows 2008',
-    //   version: '8'
-    // },
-  // };
-
-
-  // process.env.SAUCE_USERNAME = 'replace with username';
-  // process.env.SAUCE_ACCESS_KEY = 'replace with api key';
-
-
   config.set({
-
-
-    // Build Number Prodived by CI Server or assume Local, ex:
-    // build: '${jenkins.buildNumber}' || 'LOCAL',
-
-    // Title for Build appear in Sauce Labs UI
-    // sauceLabs: {
-    //     testName: 'replace with some name',
-    //     recordVideo: true
-    // },
-
-    // Required by Karma Sauce Launcher
-    // see: https://github.com/saucelabs/karma-sauce-example/blob/master/karma.conf-ci.js
-    // customLaunchers: customLaunchers,
 
     // Start these browsers, currently available:
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
@@ -85,11 +37,6 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
     reporters: ['progress', 'coverage'],
 
-    // the default configuration
-    // junitReporter: {
-    //   outputFile: 'test-results.xml',
-    //   suite: ''
-    // },
 
     preprocessors: {
       // source files, that you wanna generate coverage for
@@ -128,8 +75,7 @@ module.exports = function(config) {
     // - Opera (has to be installed with `npm install karma-opera-launcher`)
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
-    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'ChromeCanary', 'Firefox', 'Opera', 'Safari'],
 
 
     // If browser does not capture in given timeout [ms], kill it

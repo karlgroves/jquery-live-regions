@@ -29,4 +29,4 @@ Assuming that you don't see any red, you're ready to go. Just be sure to run `gr
 1. Run `grunt` to see if the tests pass. Repeat steps 2-4 until done.
 1. Open `test/*.html` unit test file(s) in actual browser to ensure tests pass everywhere.
 1. Update the documentation to reflect any changes.
-1. Push to your fork and submit a pull request.
+1. Push to your fork and submit a pull request. If Grunt tasks are failing and unit tests aren't passing, the PR will be rejected.

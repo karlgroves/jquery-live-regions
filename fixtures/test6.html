@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>Test 6</title>
-      <script src="../bower_components/jquery/dist/jquery.min.js"></script>
-      <script src="../src/liveRegion.js"></script>
+<head>
+    <title>Test 6</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/liveRegion.js"></script>
 
-  </head>
-  <body>
-  <!--// Test of content that takes a little time  //-->
-  <div id="live-region"></div>
+</head>
+<body>
+<!--// Test of content that takes a little time  //-->
+<div id="live-region"></div>
 
-  <script>
-      $(document).ready(function(){
-          $('#live-region').liveRegion();
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion();
 
-          setTimeout(function(){
-              $('#live-region').liveRegion({
-                  replace: true,
-                  text: 'Go to Heaven for the climate, Hell for the company.'
-              })
-          }, 10000);
-      });
-  </script>
-  </body>
+        setTimeout(function () {
+            $('#live-region').liveRegion({
+                replace: true,
+                text: 'Go to Heaven for the climate, Hell for the company.'
+            })
+        }, 10000);
+    });
+</script>
+</body>
 </html>

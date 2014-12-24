@@ -20,20 +20,20 @@ var should = chai.should();
 
 
 (function () {
-'use strict';
+    'use strict';
 
 
-    var $$, doit;
+    var $$;
 
-    describe('It should have an empty live region that becomes populated after 10 seconds.', function () {
+    describe('Test 6: an empty live region that becomes populated after 10 seconds.', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done){
+        beforeEach(function (done) {
 
             fixtures.path = 'base/test';
 
-            fixtures.load('test6.html', function(){
+            fixtures.load('test6.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
 
                 /**
@@ -41,21 +41,23 @@ var should = chai.should();
                  * After 10 seconds, text content should be: Go to Heaven for the climate, Hell for the company.
                  */
 
-                doit = fixtures.window().doit;
+                var theRegion = $$('#live-region'),
+                    role = theRegion.attr('role'),
+                    atomic = theRegion.attr('aria-atomic'),
+                    live = theRegion.attr('aria-live'),
+                    busy = theRegion.attr('aria-busy'),
+                    relevant = theRegion.attr('aria-relevant'),
+                    text = theRegion.html();
+
+
                 done();
             });
         });
 
-        afterEach(function (done){
+        afterEach(function (done) {
             fixtures.cleanUp(); // cleans up the fixture for the next test
             done();
         });
-
-
-        it('doit should reutrn true when called', function(){
-          doit().should.equal(true);
-        });
-
 
     });
 

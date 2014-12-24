@@ -1,4 +1,5 @@
-;(function ($, window, undefined) {
+;
+(function ($, window, undefined) {
     'use strict';
     $.fn.extend({
         /**
@@ -37,7 +38,7 @@
                 text,
                 wait;
 
-            if(typeof opts === 'undefined'){
+            if (typeof opts === 'undefined') {
                 opts = {};
             }
 
@@ -117,7 +118,7 @@
             /**
              * Semi-kludgey: if the role is alert, override any 'live' property value to ensure it is assertive
              */
-            if(role === 'alert'){
+            if (role === 'alert') {
                 live = 'assertive';
             }
 
@@ -150,17 +151,17 @@
             // as the other relevant live region attributes
             if (typeof text !== 'undefined') {
                 if (replace === false) {
-                    setTimeout(function(){
+                    setTimeout(function () {
                         self.append(text);
                     }, wait);
                 }
                 else {
-                    setTimeout(function(){
+                    setTimeout(function () {
                         self.empty().html(text);
                     }, wait);
                 }
             }
-            
+
             return this;
         }
     });

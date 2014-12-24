@@ -20,44 +20,44 @@ var should = chai.should();
 
 
 (function () {
-'use strict';
+    'use strict';
 
 
-    var $$, doit;
+    var $$;
 
-    describe('It should append text when the #change button is clicked', function () {
+    describe('Test 5a: the live region should have appended text when the #change button is clicked', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done){
+        beforeEach(function (done) {
 
             fixtures.path = 'base/test';
 
-            fixtures.load('test5-a.html', function(){
+            fixtures.load('test5-a.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
 
                 /**
                  * On load, text should be: It is curious that physical courage should be so common in the world and moral courage so rare.
                  *
-                 * After #change is clicked, this should be appended to it: The lack of money is the root of all evil.
+                 * After #change is clicked, this should be *appended* to it: The lack of money is the root of all evil.
                  */
 
+                var theRegion = $$('#live-region'),
+                    role = theRegion.attr('role'),
+                    atomic = theRegion.attr('aria-atomic'),
+                    live = theRegion.attr('aria-live'),
+                    busy = theRegion.attr('aria-busy'),
+                    relevant = theRegion.attr('aria-relevant'),
+                    text = theRegion.html();
 
-                doit = fixtures.window().doit;
                 done();
             });
         });
 
-        afterEach(function (done){
+        afterEach(function (done) {
             fixtures.cleanUp(); // cleans up the fixture for the next test
             done();
         });
-
-
-        it('doit should reutrn true when called', function(){
-          doit().should.equal(true);
-        });
-
 
     });
 

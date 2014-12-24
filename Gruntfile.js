@@ -60,9 +60,6 @@ module.exports = function (grunt) {
                 background: false,
                 captureConsole: false
             }
-            // continuous: {
-            //     configFile: './karma.conf-ci.js'
-            // }
         },
         watch: {
             gruntfile: {

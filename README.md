@@ -1,6 +1,6 @@
 # jQuery Live Regions
 
-This is a simple, easy to use plugin for managing live regions on a page, including adding new content or swapping content in the live region
+This is a simple, easy to use plugin for managing live regions on a page, including adding new content or swapping content in the live region.
 
 ## Getting Started
 
@@ -32,7 +32,7 @@ Some changes to content on a page should trigger notifications to the user of as
 
 ```$('#foo').liveRegion();```
 
-The above method creates a live region with default values. Modifications to the item with an ID of "foo" will be announced by assistive technology.
+The above method creates a live region with default values. Modifications to the content within the live region will be announced by assistive technology.
 
 ### Give it a label
 
@@ -40,9 +40,12 @@ The above method creates a live region with default values. Modifications to the
 
 This will create a live region with an ```aria-label``` of "New Ticker"
 
+## Demos
+Each of the unit test fixtures are also working demos of the plugin. There is an index of these located in the "demo" folder of this repository.
+
 ## Full list of available properties
 
-You are not required to provide any of these values. They will be set to sensible defaults if they aren't supplied.
+Note: You are not required to provide any of these values. They will be set to sensible defaults if they aren't supplied.
 
 * labelledby - Points to an ID of another element on screen to use as a label. Becomes ```aria-labelledby``` on the live region.
 * label - String of text provided to serve as a label. Becomes ```aria-label``` attribute on the live region.
@@ -112,7 +115,7 @@ In the above scenario, the original settings are retained and only the ```aria-b
 
 ## More information:
 
-A complete tutorial on live regions is out of the scope of this README.  Browse the following, for more info:
+A complete tutorial on live regions is out of the scope of this README.  Browse the following for more info:
 
 * [http://www.w3.org/WAI/PF/aria-practices/#liveprops](http://www.w3.org/WAI/PF/aria-practices/#liveprops)
 * [https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions)

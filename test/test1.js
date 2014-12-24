@@ -20,49 +20,53 @@ var should = chai.should();
 
 
 (function () {
-'use strict';
+    'use strict';
 
 
-    var $$, doit;
+    var $$;
 
-    describe('It should have a live region with default properties', function () {
+    describe('Test1 - default properties', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done){
+        fixtures.path = 'base/fixtures';
 
-            fixtures.path = 'base/test';
+        beforeEach(function (done) {
+            done();
+        });
 
-            fixtures.load('test1.html', function(){
+
+        it('should have a full set of default attributes', function (done) {
+
+            /**
+             *  role="region"
+             * aria-atomic="false"
+             * aria-live="polite"
+             * aria-busy="false"
+             * aria-relevant="additions"
+             * text should be empty
+             */
+
+
+            fixtures.load('test1.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
 
-                /**
-                 *  role="region"
-                 * aria-atomic="false"
-                 * aria-live="polite"
-                 * aria-busy="false"
-                 * aria-relevant="additions"
-                 * text should be empty
-                 */
-
-
-                doit = fixtures.window().doit;
-
+                var theRegion = $$('#live-region'),
+                    role = theRegion.attr('role'),
+                    atomic = theRegion.attr('aria-atomic'),
+                    live = theRegion.attr('aria-live'),
+                    busy = theRegion.attr('aria-busy'),
+                    relevant = theRegion.attr('aria-relevant'),
+                    text = theRegion.html();
 
                 done();
             });
         });
 
-        afterEach(function (done){
+
+        afterEach(function () {
             fixtures.cleanUp(); // cleans up the fixture for the next test
-            done();
         });
-
-
-        it('doit should reutrn true when called', function(){
-          doit().should.equal(true);
-        });
-
 
     });
 
