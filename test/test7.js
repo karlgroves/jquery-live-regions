@@ -65,16 +65,16 @@ var should = chai.should();
         it('should have a role attribute set to \"alert\"', function () {
              theRegion.attr("role").should.equal("region");
         });
-        it('should have a aria-atomic attribute set to \"false\"', function () {
+        it('should have an aria-atomic attribute set to \"false\"', function () {
              theRegion.attr("aria-atomic").should.equal("false");
         });
-        it('should have a aria-live attribute set to \"assertive\"', function () {
+        it('should have an aria-live attribute set to \"assertive\"', function () {
              theRegion.attr("aria-live").should.equal("assertive");
         });
-        it('should have a aria-busy attribute set to \"false\"', function () {
+        it('should have an aria-busy attribute set to \"false\"', function () {
              theRegion.attr("aria-busy").should.equal("false");
         });
-        it('should have a aria-relevant attribute set to \"additions\"', function () {
+        it('should have an aria-relevant attribute set to \"additions\"', function () {
              theRegion.attr("aria-relevant").should.equal("additions");
         });
         it('should have text that says \"There were problems with your form submission\"', function () {
