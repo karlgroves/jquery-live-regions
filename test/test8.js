@@ -41,7 +41,7 @@ var should = chai.should();
              * aria-relevant="additions"
              * aria-labelledby="label"
              */
-            fixtures.load('test1.html', function () {
+            fixtures.load('test8.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
                 theRegion = $$('#live-region');
                 atomic = theRegion.attr('aria-atomic');
