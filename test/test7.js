@@ -23,45 +23,62 @@ var should = chai.should();
     'use strict';
 
 
-    var $$;
+    var $$,theRegion,role,atomic,live,busy,relevant,text;
 
-    describe('Test 7: a special live region role of alert', function () {
+    describe.only('Test 7: a special live region role of alert', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done) {
+        fixtures.path = 'base/test/fixtures';
 
-            fixtures.path = 'base/test';
-
+        before(function(done){
+            /**
+             * IT SHOULD HAVE
+             *
+             * role="alert"
+             * aria-atomic="false"
+             * aria-live="assertive"
+             * aria-busy="false"
+             * aria-relevant="additions"
+             * text of There were problems with your form submission
+             */
             fixtures.load('test7.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
-
-                /**
-                 * IT SHOULD HAVE
-                 *
-                 * role="alert"
-                 * aria-atomic="false"
-                 * aria-live="assertive"
-                 * aria-busy="false"
-                 * aria-relevant="additions"
-                 * text of There were problems with your form submission
-                 */
-
-                var theRegion = $$('#live-region'),
-                    role = theRegion.attr('role'),
-                    atomic = theRegion.attr('aria-atomic'),
-                    live = theRegion.attr('aria-live'),
-                    busy = theRegion.attr('aria-busy'),
-                    relevant = theRegion.attr('aria-relevant'),
-                    text = theRegion.html();
-
+                theRegion = $$('#live-region');
+                atomic = theRegion.attr('aria-atomic');
+                live = theRegion.attr('aria-live');
+                busy = theRegion.attr('aria-busy');
+                relevant = theRegion.attr('aria-relevant');
+                text = theRegion.html();
                 done();
             });
         });
 
-        afterEach(function (done) {
-            fixtures.cleanUp(); // cleans up the fixture for the next test
+        beforeEach(function (done) {
             done();
+        });
+
+        afterEach(function () {
+            fixtures.cleanUp(); // cleans up the fixture for the next test
+        });
+
+        it('should have a role attribute set to \"alert\"', function () {
+             theRegion.attr("role").should.equal("region");
+        });
+        it('should have a aria-atomic attribute set to \"false\"', function () {
+             theRegion.attr("aria-atomic").should.equal("false");
+        });
+        it('should have a aria-live attribute set to \"assertive\"', function () {
+             theRegion.attr("aria-live").should.equal("assertive");
+        });
+        it('should have a aria-busy attribute set to \"false\"', function () {
+             theRegion.attr("aria-busy").should.equal("false");
+        });
+        it('should have a aria-relevant attribute set to \"additions\"', function () {
+             theRegion.attr("aria-relevant").should.equal("additions");
+        });
+        it('should have text that says \"There were problems with your form submission\"', function () {
+            theRegion.text.should.equal("There were problems with your form submission");
         });
 
     });

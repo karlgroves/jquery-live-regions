@@ -23,45 +23,64 @@ var should = chai.should();
     'use strict';
 
 
-    var $$;
+    var $$,theRegion,role,atomic,live,busy,relevant,text, labelledby;
 
-    describe('Test 8: a live region with an external label', function () {
+    describe.only('Test 8: a live region with an external label', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done) {
+        fixtures.path = 'base/test/fixtures';
 
-            fixtures.path = 'base/test';
-
-            fixtures.load('test8.html', function () {
+        before(function(done){
+            /**
+             * IT SHOULD HAVE
+             * role="region"
+             * aria-atomic="false"
+             * aria-live="polite"
+             * aria-busy="false"
+             * aria-relevant="additions"
+             * aria-labelledby="label"
+             */
+            fixtures.load('test1.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
-
-                /**
-                 * IT SHOULD HAVE
-                 * role="region"
-                 * aria-atomic="false"
-                 * aria-live="polite"
-                 * aria-busy="false"
-                 * aria-relevant="additions"
-                 * aria-labelledby="label"
-                 */
-
-                var theRegion = $$('#live-region'),
-                    role = theRegion.attr('role'),
-                    atomic = theRegion.attr('aria-atomic'),
-                    live = theRegion.attr('aria-live'),
-                    busy = theRegion.attr('aria-busy'),
-                    relevant = theRegion.attr('aria-relevant'),
-                    text = theRegion.html();
-
+                theRegion = $$('#live-region');
+                atomic = theRegion.attr('aria-atomic');
+                live = theRegion.attr('aria-live');
+                busy = theRegion.attr('aria-busy');
+                relevant = theRegion.attr('aria-relevant');
+                text = theRegion.html();
+                labelledby = theRegion.attr('aria-labelledby');
                 done();
             });
         });
 
-        afterEach(function (done) {
-            fixtures.cleanUp(); // cleans up the fixture for the next test
+        beforeEach(function (done) {
             done();
         });
+
+        afterEach(function () {
+            fixtures.cleanUp(); // cleans up the fixture for the next test
+        });
+
+        it('should have a role attribute set to \"region\"', function () {
+             theRegion.attr("role").should.equal("region");
+        });
+        it('should have a aria-atomic attribute set to \"false\"', function () {
+             theRegion.attr("aria-atomic").should.equal("false");
+        });
+        it('should have a aria-live attribute set to \"polite\"', function () {
+             theRegion.attr("aria-live").should.equal("polite");
+        });
+        it('should have a aria-busy attribute set to \"false\"', function () {
+             theRegion.attr("aria-busy").should.equal("false");
+        });
+        it('should have a aria-relevant attribute set to \"additions\"', function () {
+             theRegion.attr("aria-relevant").should.equal("additions");
+        });
+        it('should have a aria-labelledby attribite set to \"label\"', function () {
+            theRegion.attr("aria-labelledby").should.equal("label");
+        });
+
     });
 
 })();

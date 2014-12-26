@@ -2,19 +2,6 @@
 /*global $: true, fixtures:true, describe:true, it:true, chai:true, before, after, beforeEach, afterEach, sinon, expect */
 
 
-// AEM Unit Tests
-
-// Please use BDD should style tests
-// see: http://chaijs.com/api/bdd/
-
-// var should = require('chai').should() //actually call the the function
-//   , foo = 'bar'
-//   , beverages = { tea: [ 'chai', 'matcha', 'oolong' ] };
-
-// foo.should.be.a('string');
-// foo.should.equal('bar');
-// foo.should.have.length(3);
-// beverages.should.have.property('tea').with.length(3);
 
 var should = chai.should();
 
@@ -23,47 +10,62 @@ var should = chai.should();
     'use strict';
 
 
-    var $$;
+    var $$,theRegion,role,atomic,live,busy,relevant,text;
 
-    describe('Test 3:  a live region with a full set of custom options', function () {
+    describe.only('Test 3:  a live region with a full set of custom options', function () {
 
         this.timeout(3000);
 
-        beforeEach(function (done) {
+        fixtures.path = 'base/test/fixtures';
 
-            fixtures.path = 'base/test';
-
+        before(function(done){
+            /**
+             * role="log"
+             * aria-atomic="false"
+             * aria-live="polite"
+             * aria-busy="false"
+             * aria-relevant="additions text"
+             * aria-label="Chat Log"
+             * class="tblLiveCaption"
+             * text should be empty
+             */
             fixtures.load('test3.html', function () {
                 $$ = fixtures.window().jQuery; // access the jquery instance from within the fixtures context
-
-                /**
-                 * role="log"
-                 * aria-atomic="false"
-                 * aria-live="polite"
-                 * aria-busy="false"
-                 * aria-relevant="additions text"
-                 * aria-label="Chat Log"
-                 * class="tblLiveCaption"
-                 * text should be empty
-                 */
-
-                var theRegion = $$('#live-region'),
-                    role = theRegion.attr('role'),
-                    atomic = theRegion.attr('aria-atomic'),
-                    live = theRegion.attr('aria-live'),
-                    busy = theRegion.attr('aria-busy'),
-                    relevant = theRegion.attr('aria-relevant'),
-                    text = theRegion.html();
-
+                theRegion = $$('#live-region');
+                atomic = theRegion.attr('aria-atomic');
+                live = theRegion.attr('aria-live');
+                busy = theRegion.attr('aria-busy');
+                relevant = theRegion.attr('aria-relevant');
+                text = theRegion.html();
                 done();
             });
         });
 
-        afterEach(function (done) {
-            fixtures.cleanUp(); // cleans up the fixture for the next test
+        beforeEach(function (done) {
             done();
         });
 
-    });
+        afterEach(function () {
+            fixtures.cleanUp(); // cleans up the fixture for the next test
+        });
 
+        it('should have a role attribute set to \"log\"', function () {
+             theRegion.attr("role").should.equal("log");
+        });
+        it('should have a aria-atomic attribute set to \"false\"', function () {
+             theRegion.attr("aria-atomic").should.equal("false");
+        });
+        it('should have a aria-live attribute set to \"polite\"', function () {
+             theRegion.attr("aria-live").should.equal("polite");
+        });
+        it('should have a aria-busy attribute set to \"false\"', function () {
+             theRegion.attr("aria-busy").should.equal("false");
+        });
+        it('should have a aria-relevant attribute set to \"additions text\"', function () {
+             theRegion.attr("aria-relevant").should.equal("additions text");
+        });
+        it('should have a class attribute set to \"tblLiveCaption\"', function () {
+            theRegion.attr("class").should.equal("tblLiveCaption");
+        });
+    });
 })();
