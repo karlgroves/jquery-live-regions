@@ -1,27 +1,10 @@
 /*jshint unused: false, jquery: true, expr: true*/
 /*global $: true, fixtures:true, describe:true, it:true, chai:true, before, after, beforeEach, afterEach, sinon, expect */
 
-
-// AEM Unit Tests
-
-// Please use BDD should style tests
-// see: http://chaijs.com/api/bdd/
-
-// var should = require('chai').should() //actually call the the function
-//   , foo = 'bar'
-//   , beverages = { tea: [ 'chai', 'matcha', 'oolong' ] };
-
-// foo.should.be.a('string');
-// foo.should.equal('bar');
-// foo.should.have.length(3);
-// beverages.should.have.property('tea').with.length(3);
-
 var should = chai.should();
-
 
 (function () {
     'use strict';
-
 
     var $$;
 
@@ -48,7 +31,6 @@ var should = chai.should();
                     busy = theRegion.attr('aria-busy'),
                     relevant = theRegion.attr('aria-relevant'),
                     text = theRegion.html();
-
 
                 done();
             });

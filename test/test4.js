@@ -3,10 +3,8 @@
 
 var should = chai.should();
 
-
 (function () {
     'use strict';
-
 
     var $$;
 
