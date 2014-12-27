@@ -1,4 +1,18 @@
-(function ($) {
+;(function (factory) {
+
+    var define, require;
+
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // Node/CommonJS
+        factory(require('jquery'));
+    } else {
+        // Browser globals
+        factory(jQuery);
+    }
+}(function ($) {
     'use strict';
     $.fn.extend({
         /**
@@ -34,7 +48,12 @@
                 busy,
                 className,
                 replace,
-                text;
+                text,
+                wait;
+
+            if (typeof opts === 'undefined') {
+                opts = {};
+            }
 
             /**
              * function to determine whether something is blank or not
@@ -93,7 +112,7 @@
 
             // this section determines what the new values should be.
             // it does so by setting to:
-            // 1.  the defined opts value or,
+            // 1.  the defined opts value if they exist or,
             // 2.  the currently existing value or,
             // 3.  the default value
             // (in that order)
@@ -107,6 +126,14 @@
             className = opts.className || undefined;
             replace = opts.replace || false;
             text = opts.text || undefined;
+            wait = opts.wait || 200;
+
+            /**
+             * Semi-kludgey: if the role is alert, override any 'live' property value to ensure it is assertive
+             */
+            if (role === 'alert') {
+                live = 'assertive';
+            }
 
             // actually set the values
             self.attr('role', role)
@@ -132,14 +159,23 @@
             }
 
             // add or replace text, if needed
-            if (text !== undefined) {
+            // NOTE the use of setTimeout here to deal with some screen readers not
+            // announcing liveRegion content if the content is added at the same time
+            // as the other relevant live region attributes
+            if (typeof text !== 'undefined') {
                 if (replace === false) {
-                    self.append(text);
+                    setTimeout(function () {
+                        self.append(text);
+                    }, wait);
                 }
                 else {
-                    self.empty().html(text);
+                    setTimeout(function () {
+                        self.empty().html(text);
+                    }, wait);
                 }
             }
+
+            return this;
         }
     });
-})(jQuery);
+}));

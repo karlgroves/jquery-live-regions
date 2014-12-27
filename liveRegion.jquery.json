@@ -1,0 +1,28 @@
+{
+    "name": "liveRegion",
+    "title": "liveRegion",
+    "description": "jQuery Live Region plugin.",
+    "version": "0.1.1",
+    "homepage": "https://github.com/karlgroves/jquery-live-regions/",
+    "author": {
+        "name": "Karl Groves",
+        "url": "https://github.com/karlgroves"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:karlgroves/jquery-live-regions.git"
+    },
+    "bugs": "https://github.com/karlgroves/jquery-live-regions/issues",
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "dependencies": {
+        "jquery": "~1.11.1"
+    },
+    "keywords": [
+        "jquery-plugin", "a11y", "accessibility", "aria"
+    ]
+}

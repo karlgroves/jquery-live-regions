@@ -1,6 +1,9 @@
-node_modules
+.DS_Store
+/node_modules/
+/bower_components/
+/coverage/
+.idea
 .idea/*
 .idea/workspace.xml
 atlassian-ide-plugin.xml
-.DS_Store
 .settings

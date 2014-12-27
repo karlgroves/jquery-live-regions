@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 2</title>
+    <script src="/base/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/base/src/liveRegion.js"></script>
+</head>
+<body>
+<!--//
+    Live Region with a few options passed to it. Like test 1, the use case is for setting up an empty
+    live region that you plan on putting text into later
+
+    IT SHOULD HAVE
+        role="status"
+        aria-atomic="false"
+        aria-live="polite"
+        aria-busy="false"
+        aria-relevant="additions removals"
+        aria-label="Mark Twain Quotes:"
+//-->
+
+<div id="live-region"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion({
+            label: 'Mark Twain Quotes:',
+            role: 'status',
+            relevant: 'additions removals'
+        });
+    });
+</script>
+</body>
+</html>

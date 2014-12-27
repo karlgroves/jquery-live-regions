@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test 7</title>
+    <script src="/base/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/base/src/liveRegion.js"></script>
+</head>
+<body>
+<!--deal with alert role-->
+
+<div id="live-region"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#live-region').liveRegion({
+            role: 'alert',
+            text: 'There were problems with your form submission'
+        });
+    });
+</script>
+</body>
+</html>
