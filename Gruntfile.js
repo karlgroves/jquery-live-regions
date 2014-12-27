@@ -24,9 +24,11 @@ module.exports = function (grunt) {
             options: {
                 banner: '<%= banner %>'
             },
-            dist: {
-                src: '<%= concat.dist.dest %>',
-                dest: 'dist/jquery.<%= pkg.name %>.min.js'
+
+            distt: {
+                files: {
+                    'dist/liveRegion.min.js': ['src/liveRegion.js']
+                }
             }
         },
         jshint: {
@@ -86,7 +88,7 @@ module.exports = function (grunt) {
     });
 
     // Default task.
-    grunt.registerTask('default', ['test', 'clean', 'copy', 'uglify']);
+    grunt.registerTask('default', ['test', 'clean', 'uglify']);
     grunt.registerTask('server', ['connect', 'watch']);
     grunt.registerTask('test', ['jshint', 'karma:dev']);
 };

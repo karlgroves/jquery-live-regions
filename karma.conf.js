@@ -76,7 +76,7 @@ module.exports = function(config) {
     // - Opera (has to be installed with `npm install karma-opera-launcher`)
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
-    browsers: ['Chrome', 'ChromeCanary', 'Firefox', 'Opera', 'Safari'],
+    browsers: ['Chrome', 'ChromeCanary', 'Firefox', 'Safari'],
 
 
     // If browser does not capture in given timeout [ms], kill it
