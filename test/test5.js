@@ -40,8 +40,10 @@ var should = chai.should();
                 busy = theRegion.attr('aria-busy');
                 relevant = theRegion.attr('aria-relevant');
                 text = theRegion.html();
-                button = $$('#change');
+                button = button;
 
+                theRegion.liveRegion(); 
+                
                 done();
             });
         });
@@ -52,8 +54,7 @@ var should = chai.should();
         });
 
         it('should have text that says \"It is curious that physical courage should be so common in the world and moral courage so rare.\"', function () {
-            theRegion.liveRegion();        
-            $$('#change').click(function () {
+            button.click(function () {
                 theRegion.liveRegion({
                     replace: true,
                     text: 'The lack of money is the root of all evil.'
@@ -64,8 +65,7 @@ var should = chai.should();
 
 
         it('should have different text after #change is clicked', function () {
-            theRegion.liveRegion();        
-            $$('#change').click(function () {
+            button.click(function () {
                 theRegion.liveRegion({
                     replace: true,
                     text: 'The lack of money is the root of all evil.'
@@ -75,9 +75,8 @@ var should = chai.should();
             theRegion.text.should.equal("The lack of money is the root of all evil.");
         });
 
-        it('should have text that says \"It is curious that physical courage should be so common in the world and moral courage so rare.\"', function () {
-            theRegion.liveRegion();        
-            $$('#change').click(function () {
+        it('should have text that says \"It is curious that physical courage should be so common in the world and moral courage so rare.\"', function () {       
+            button.click(function () {
                 theRegion.liveRegion({
                     replace: false,
                     text: 'The lack of money is the root of all evil.'
@@ -89,7 +88,7 @@ var should = chai.should();
 
         it('should have text appended to it ', function () {
             theRegion.liveRegion();        
-            $$('#change').click(function () {
+            button.click(function () {
                 theRegion.liveRegion({
                     replace: false,
                     text: 'The lack of money is the root of all evil.'
