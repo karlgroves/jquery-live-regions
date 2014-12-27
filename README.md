@@ -42,8 +42,27 @@ The above method creates a live region with default values. Modifications to the
 
 This will create a live region with an `aria-label` of "New Ticker"
 
-## Demos
-Each of the unit test fixtures are also working demos of the plugin. There is an index of these located in the "demo" folder of this repository.
+### Use it as a notifier
+Consider the following use case where a user searches for clothing products. When the user refines their search options, such as size and color, the results list is dynamically updated client-side (or via AJAX).
+
+```
+// Set up the "notifier" as a container for notices
+var notifer = $('#notifier');
+notifier.liveRegion({
+  label: 'Search Status',
+  role: 'region', 
+  live: 'assertive'
+});
+```
+Now, the user triggers the search and results are refined
+```
+notifier.liveRegion({
+  replace: 'true',
+  text: 'Search results updated: ' + num + ' results. Size: ' + sSize + ', Color: ' +sColor;
+});
+```
+The above example shows the live region indicating to the user that search results were updated and lists out the search criteria.
+
 
 ## Full list of available properties
 
