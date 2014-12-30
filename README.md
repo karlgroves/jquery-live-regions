@@ -9,6 +9,12 @@ Download the [production version][min] or the [development version][max].
 [min]: https://raw.github.com/karlgroves/jquery-live-regions/master/dist/liveRegion.min.js
 [max]: https://raw.github.com/karlgroves/jquery-live-regions/master/dist/liveRegion.js
 
+Install via bower:
+
+```
+bower install jquery-live-regions --save
+```
+
 ## Creating live region
 
 ### Primary Use Case
