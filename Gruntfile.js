@@ -25,7 +25,7 @@ module.exports = function (grunt) {
                 banner: '<%= banner %>'
             },
 
-            distt: {
+            dist: {
                 files: {
                     'dist/liveRegion.min.js': ['src/liveRegion.js']
                 }

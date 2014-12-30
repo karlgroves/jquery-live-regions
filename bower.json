@@ -1,7 +1,10 @@
 {
     "name": "liveRegions",
     "version": "0.0.1",
-    "dependencies": {},
+    "main": "dist/liveRegion.min.js",
+    "dependencies": {
+        "jquery": "~2.1.2"
+    },
     "devDependencies": {
         "jquery": "~2.1.2"
     }
