@@ -7,7 +7,7 @@ This is a simple, easy to use plugin for managing live regions on a page, includ
 Download the [production version][min] or the [development version][max].
 
 [min]: https://raw.github.com/karlgroves/jquery-live-regions/master/dist/liveRegion.min.js
-[max]: https://raw.github.com/karlgroves/jquery-live-regions/master/dist/liveRegion.js
+[max]: https://raw.github.com/karlgroves/jquery-live-regions/master/src/liveRegion.js
 
 Install via bower:
 
