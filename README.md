@@ -1,5 +1,7 @@
 # jQuery Live Regions
 
+[![Build Status](https://travis-ci.org/karlgroves/jquery-live-regions.svg?branch=master)](https://travis-ci.org/karlgroves/jquery-live-regions)
+
 This is a simple, easy to use plugin for managing live regions on a page, including adding new content or swapping content in the live region.
 
 ## Getting Started
@@ -36,7 +38,7 @@ Some changes to content on a page should trigger notifications to the user of as
 
 ### Super simple method
 
-``` 
+```
 $('#foo').liveRegion();
 ```
 
@@ -56,7 +58,7 @@ Consider the following use case where a user searches for clothing products. Whe
 var notifer = $('#notifier');
 notifier.liveRegion({
   label: 'Search Status',
-  role: 'region', 
+  role: 'region',
   live: 'assertive'
 });
 ```
@@ -94,7 +96,7 @@ Note: You are not required to provide any of these values. They will be set to s
 * busy - is the live region busy or not. Valid values are 'true' and 'false'. As before, must be strings.
 * className - CSS class name to be added to the node
 * replace - boolean representing whether or not the current text is to be replaced or not. If false, the text (defined below) will be appended to the live region node. If true, all existing content is removed first.
-* text - string of text (or HTML) to be inserted into the live region. 
+* text - string of text (or HTML) to be inserted into the live region.
 
 ### Sample use with all available properties:
 
@@ -129,7 +131,7 @@ $('#foo').liveRegion({
 
 // when waiting for the new content
 if(we-are-waiting-for-the-new-content){
-	$('#foo').liveRegion({ 
+	$('#foo').liveRegion({
 	  busy: 'true'
 	});
 }

@@ -76,16 +76,15 @@ module.exports = function(config) {
     // - Opera (has to be installed with `npm install karma-opera-launcher`)
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
-    browsers: ['Chrome', 'ChromeCanary', 'Firefox', 'Safari'],
-
-
+    browsers: ['Chrome', 'Firefox', 'Safari'],
+      
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
 
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
+    singleRun: true
 
 
   });
