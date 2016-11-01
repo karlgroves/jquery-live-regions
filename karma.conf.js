@@ -11,11 +11,9 @@ module.exports = function(config) {
 
     // base path, that will be used to resolve files and exclude
     basePath: '',
-
-
+      
     // frameworks to use
     frameworks: ['mocha', 'chai', 'sinon'],
-
 
     // list of files / patterns to load in the browser
     files: [
@@ -76,7 +74,7 @@ module.exports = function(config) {
     // - Opera (has to be installed with `npm install karma-opera-launcher`)
     // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
     // - PhantomJS
-    browsers: ['Chrome', 'Firefox', 'Safari'],
+    browsers: ['Chrome', 'Firefox'],
       
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
