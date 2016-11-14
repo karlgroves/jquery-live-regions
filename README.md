@@ -53,7 +53,7 @@ Consider the following use case where a user searches for clothing products. Whe
 
 ```
 // Set up the "notifier" as a container for notices
-var notifer = $('#notifier');
+var notifier = $('#notifier');
 notifier.liveRegion({
   label: 'Search Status',
   role: 'region', 
