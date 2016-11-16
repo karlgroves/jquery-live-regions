@@ -31,6 +31,12 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /* Run JSONLint on our configuration files */
+        jsonlint: {
+            configFiles: {
+                src: ['bower.json', 'package.json', '.bowerrc', '.jshintrc', '.tenonrc']
+            }
+        },
         jshint: {
             options: {
                 reporter: require('jshint-stylish')
@@ -90,5 +96,5 @@ module.exports = function (grunt) {
     // Default task.
     grunt.registerTask('default', ['test', 'clean', 'uglify']);
     grunt.registerTask('server', ['connect', 'watch']);
-    grunt.registerTask('test', ['jshint', 'karma:dev']);
+    grunt.registerTask('test', ['jsonlint', 'jshint', 'karma:dev']);
 };
